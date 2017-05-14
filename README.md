@@ -1,8 +1,8 @@
 <p align="center">
   <a href="http://www.worksena.xyz">
-    <img src="http://walderlan.xyz/Worksena.png">
+    <img src="http://walderlan.xyz/wssenaLogo.png">
   </a>
-  <h3 align="center">WorkSena - Micro Framework</h3>
+  <h1 align="center">WorkSena - Micro Framework</h1>
 
   <p align="center">
     Código principal do Micro Framework PHP :elephant:
