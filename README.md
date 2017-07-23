@@ -7,7 +7,7 @@
 
 ## Sobre o Worksena
 
-**WorkSena** é um **micro framework PHP**, desenvolvido com o objetivo de facilitar a vida de desenvolvedores **web**, tanto **profissionais** quanto **estudantes**. O micro framework utiliza a estrutura **MVC**, **PHP/POO**, **Composer**  e **Banco de dados** com suporte ao **[ Mysql e PostgreSQL ]**, contando também com padrões de projetos especializados em **performance** de alto desenvolvimento na web como:
+**WorkSena** é um **micro framework PHP**, desenvolvido com o objetivo de facilitar o processo de desenvolvimento de aplicações **web**. O micro framework utiliza a estrutura **MVC**, **PHP/POO**, **Composer**  e **Banco de dados** com suporte ao **[ Mysql e PostgreSQL ]**, contando também com padrões de projetos especializados em **performance** de alto desenvolvimento na web como:
 
 - [Sistema de roteamento simples](https://www.worksena.xyz).
 - [Renderização de Layout autômatico](https://www.worksena.xyz).
