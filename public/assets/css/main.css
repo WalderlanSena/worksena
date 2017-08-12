@@ -1,0 +1,213 @@
+/**
+ *  WorkSena - Micro Framework PHP -
+ *  @author     Walderlan Sena - <walderlan@worksena.xyz>
+ *  @license    MIT <https://opensource.org/licenses/MIT>
+ *  @warning    Redistributions of files must retain the above copyright notice.
+ *  @version    v0.0.1 - <https://github.com/WalderlanSena/worksena>
+ *  @link       <https://www.worksena.xyz>
+ *  @copyright  Mentes Virtuais Sena © <https://www.mentesvirtuaissena.com>
+ *
+ */
+
+/* #################### FONTES #################### */
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+@import 'https://fonts.googleapis.com/css?family=Rosario';
+@import 'https://fonts.googleapis.com/css?family=Josefin+Slab|Rosario';
+/* #################### END FONTES #################### */
+
+/* #################### CSS HOME #################### */
+.navbar{
+  background-color:rgba(0, 0, 0, 0.75);
+  border-color: transparent;
+  border-radius: 0;
+  margin-bottom: 40px;
+
+}
+.navbar a{
+  color: #FFF !important;
+}
+.rodape{
+  padding-bottom: 40px;
+  background-color: rgb(43, 45, 48);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFF;
+}
+.rodape p{
+  font-size: 11px;
+  font-family: 'Rosario', sans-serif;
+}
+.rodape h2, .rodape h3{
+  border-bottom: 2px solid rgb(235, 88, 88);
+  padding: 2px;
+  font-family: 'Oswald', sans-serif;
+}
+.copyright{
+  padding: 5px;
+  background-color: #333 !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  color: #FFF;
+  border-top: 5px solid rgb(235, 88, 88);
+}
+.proibido{
+  font-size: 10px;
+}
+.lead-work{
+  background-color: rgb(235, 88, 88) !important;
+  color: #FFF;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.73);
+  box-shadow: 10px -6px 89px 2px rgba(138,127,127,1);
+  -webkit-box-shadow: 10px -6px 89px 2px rgba(138,127,127,1);
+  -moz-box-shadow: 10px -6px 89px 2px rgba(138,127,127,1);
+}
+/* #################### END CSS HOME #################### */
+
+/* #################### CSS ADMINISTRATOR #################### */
+.form-cad-blog input, textarea{
+  margin-top: 10px;
+}
+.updates{
+  color: #FFF;
+  text-align: center !important;
+}
+.updates label{
+  color: #FFF;
+}
+.updates span{
+  font-size: 64px !important;
+}
+var {
+  display: block;
+  height: 64px;
+  font-size: 34px;
+  line-height: 64px;
+  font-style: normal;
+}
+.updates .hero-widget{
+  border-radius: 0px 20px 0px 20px;
+}
+.updates .numpost{
+  background-color: #0b0634;
+}
+.updates .visulisacao{
+  background-color: #0e9838;
+}
+.updates .mensages{
+  background-color: rgb(218, 62, 62);
+}
+.updates .config{
+  background-color: rgb(6, 6, 6);
+}
+.titulo-dash{
+  background-color: rgb(235, 88, 88) !important;
+}
+.titulo-dash h1{
+  color: #FFF;
+}
+.profile-aside{
+  background-color: #141313 !important;
+}
+.profile-aside h1,h4{
+  color: #FFF;
+}
+.profile-body{
+  background-color: rgb(4, 0, 0) !important;
+}
+.profile{
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #FFF;
+  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+  width: 155px !important;
+  height: 155px !important;
+}
+/* #################### END CSS ADMINISTRATOR #################### */
+
+/* #################### CSS LOGIN END CADASTRO #################### */
+.login-page {
+  width: 360px;
+  padding: 2% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: background-color 2s !important;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease !important;
+  transition: all 0.3 ease !important;
+  cursor: pointer !important;
+  transition: background-color 1s !important;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+  font-weight: bold;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: rgb(235, 88, 88);
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+form textarea{
+  resize: none;
+}
+.alert{
+    -webkit-transition: all 0.3 ease !important;
+    transition: all 0.3 ease !important;
+    cursor: pointer !important;
+    transition: background-color 1s !important;
+}
+/* #################### CSS LOGIN END CADASTRO #################### */
+
+/* #################### CSS BARRA DE  SCROLL #################### */
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(235, 88, 88) !important;
+}
+/* #################### end css barra #################### */

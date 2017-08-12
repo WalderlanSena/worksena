@@ -1,0 +1,39 @@
+/**
+ *  WorkSena - Micro Framework PHP -
+ *  @author     Walderlan Sena - <walderlan@worksena.xyz>
+ *  @license    MIT <https://opensource.org/licenses/MIT>
+ *  @warning    Redistributions of files must retain the above copyright notice.
+ *  @version    v0.0.1 - <https://github.com/WalderlanSena/worksena>
+ *  @link       <https://www.worksena.xyz>
+ *  @copyright  Mentes Virtuais Sena © <https://www.mentesvirtuaissena.com>
+ *
+ */
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+body{
+	background-color: rgb(51, 66, 91);
+	font-family:'Arial',sans-serif;
+	text-align: center;
+	color: #FFF !important;
+}
+h1{
+	font-family: verdana;
+	margin-bottom:-20px;
+	font-family: 'Oswald', sans-serif;
+}
+.erro{
+	font-size: 150px;
+	font-family: 'Oswald', sans-serif;
+}
+#erro{
+	text-decoration: none !important;
+	font-size: 16px;
+	cursor: pointer;
+}
+.mentes{
+	font-size:10pt;
+	margin-top: 50px;
+}
+figure img{
+	margin-top:5px;
+	margin-bottom: 2px;
+}
