@@ -4,6 +4,7 @@
     "keywords": ["microframework","worksena","mvc"],
     "license": "MIT",
     "type": "project",
+    "version": "0.0.1",
     "authors": [
         {
           "name": "Walderlan Sena",
