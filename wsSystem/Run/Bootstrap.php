@@ -79,19 +79,31 @@ abstract class Bootstrap
     		switch (count($this->params)) {
                 // Caso um parâmetro tenha sido passado
     			case 1:
-    				$controller->$action($this->params[0], GetRequest::get());
+                    if(method_exists($controller, $action))
+    				    $controller->$action($this->params[0], GetRequest::get());
+                    else
+                        Container::pageNotFound();
     				break;
                 // Caso dois parâmetro tenha sido passado
     			case 2:
-    				$controller->$action($this->params[0], $this->params[1], GetRequest::get());
+                    if(method_exists($controller, $action))
+    				    $controller->$action($this->params[0], $this->params[1], GetRequest::get());
+                    else
+                        Container::pageNotFound();
     				break;
                 // Caso três parâmetro tenha sido passado
     			case 3:
-    				$controller->$action($this->params[0], $this->params[1], $this->params[2], GetRequest::get());
+                    if(method_exists($controller, $action))
+    				    $controller->$action($this->params[0], $this->params[1], $this->params[2], GetRequest::get());
+                    else
+                        Container::pageNotFound();
     				break;
                 // Caso nenhum parâmetro tenha sido passado
     			default:
-    				$controller->$action(GetRequest::get());
+                    if(method_exists($controller, $action))
+    				    $controller->$action(GetRequest::get());
+                    else
+                        Container::pageNotFound();
                     break;
     		}//end switch
 	    } else {
