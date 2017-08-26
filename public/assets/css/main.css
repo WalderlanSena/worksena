@@ -11,7 +11,7 @@
 
 /* #################### FONTES #################### */
 @import 'https://fonts.googleapis.com/css?family=Oswald';
-@import 'https://fonts.googleapis.com/css?family=Rosario';
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import 'https://fonts.googleapis.com/css?family=Josefin+Slab|Rosario';
 /* #################### END FONTES #################### */
 
@@ -21,10 +21,32 @@
   border-color: transparent;
   border-radius: 0;
   margin-bottom: 40px;
-
 }
 .navbar a{
   color: #FFF !important;
+}
+.home-index{
+    padding: 20px;
+}
+.home-index img{
+    display: block;
+    margin: 0px auto;
+}
+.home-index a{
+    font-size: 20px;
+    margin-left: 10px;
+    font-family: 'Raleway', sans-serif !important;
+    color: rgb(235, 88, 88) !important;
+}
+.home-index p{
+    font-family: 'Raleway', sans-serif !important;
+}
+.link{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.version{
+    margin-top: 20px;
 }
 .rodape{
   padding-bottom: 40px;
