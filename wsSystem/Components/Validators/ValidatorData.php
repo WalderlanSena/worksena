@@ -13,6 +13,7 @@
 namespace WsSystem\Components\Validators;
 
 use WsSystem\Components\Sessions\Session;
+use WsSystem\Di\Container;
 
 abstract class ValidatorData
 {
@@ -72,13 +73,22 @@ abstract class ValidatorData
                                         break;
                                     // Verificando se o campo é um inteiro
                                     case 'int':
-                                        if (!filter_var($rulesKey, FILTER_VALIDATE_INT))
+                                        if (!filter_var($dataValue, FILTER_VALIDATE_INT))
                                             $errors["$rulesKey"] = "O campo {$rulesKey} dever ser inteiro !";
                                         break;
                                     // Verificando se o campo é um float
                                     case 'float':
-                                        if (!filter_var($rulesKey, FILTER_VALIDATE_FLOAT))
+                                        if (!filter_var($dataValue, FILTER_VALIDATE_FLOAT))
                                             $errors["$rulesKey"] = "O campo {$rulesKey} dever ser decimal !";
+                                        break;
+                                    case 'date':
+                                        $data = explode("/", $dataValue);
+                                        $d = $data[0];
+                                    	$m = $data[1];
+                                    	$y = $data[2];
+                                    	$res = checkdate($m,$d,$y);
+                                    	if (!$res)
+                                    	   $errors["$rulesKey"] = "O campo {$rulesKey} contem um data invalida !";
                                         break;
                                     // Se os casos acimas não forem atentidos exucata o padrão
                                     default:
@@ -105,7 +115,7 @@ abstract class ValidatorData
                                 break;
                         }//end switch
                     }// end if position :
-                }else{
+                } else {
                     // Testando as regras
                     switch ($rulesValue) {
                         // Verificando se o campo está vazio
@@ -120,13 +130,22 @@ abstract class ValidatorData
                             break;
                         // Verificando se o campo é um inteiro
                         case 'int':
-                            if (!filter_var($rulesKey, FILTER_VALIDATE_INT))
+                            if (!filter_var($dataValue, FILTER_VALIDATE_INT))
                             $errors["$rulesKey"] = "O campo {$rulesKey} dever ser inteiro !";
                         break;
                         // Verificando se o campo é um float
                         case 'float':
-                            if (!filter_var($rulesKey, FILTER_VALIDATE_FLOAT))
+                            if (!filter_var($dataValue, FILTER_VALIDATE_FLOAT))
                                 $errors["$rulesKey"] = "O campo {$rulesKey} dever ser decimal !";
+                            break;
+                        case 'date':
+                            $data = explode("/", $dataValue);
+                            $d = $data[0];
+                        	$m = $data[1];
+                        	$y = $data[2];
+                        	$res = checkdate($m,$d,$y);
+                        	if (!$res)
+                        	   $errors["$rulesKey"] = "O campo {$rulesKey} contem um data invalida !";
                             break;
                         // Se os casos acimas não forem atentidos exucata o padrão
                         default:
