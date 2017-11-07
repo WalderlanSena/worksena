@@ -1,8 +1,8 @@
 <p align="center"><img src="http://www.walderlan.xyz/worksena-min.png"></p>
 
 <p align="center">
-<a href="#"><img src="http://www.walderlan.xyz/stable.svg"></a>
-<a href="#"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="#"><img src="https://github.com/WalderlanSena/tagsGit/blob/master/stableWorksena.svg"></a>
+<a href="#"><img src="https://github.com/WalderlanSena/tagsGit/blob/master/licenseMIT.svg" alt="License"></a>
 </p>
 
 ## Sobre o Worksena
