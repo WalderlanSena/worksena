@@ -54,4 +54,17 @@ abstract class Session
         }//end if
     }//end método destroySession
 
+    /**
+     *  Método para destruir sessiões criadas pelo sistema de login
+     */
+    public function destroySessionLogin()
+    {
+        Session::destroySession("user");
+        Session::destroySession("ID_DA_SESSION");
+        Session::destroySession("TEMPO_DA_SESSION");
+        Session::destroySession("IP_DA_SESSION");
+        Session::destroySession("HTTP_USER_AGENT_DA_SESSION");
+        Session::destroySession("HTTP_HOST_DA_SESSION");
+    }
+
 }//end class Session

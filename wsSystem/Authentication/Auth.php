@@ -17,6 +17,8 @@ use WsSystem\Components\Sessions\Session;
 
 trait Auth
 {
+    private $segundo = 3600;
+
     // Action que realiza o login
     public function loginAction()
     {
@@ -54,7 +56,13 @@ trait Auth
                 'email' => $result->email
             ];
             // Criando a session de usúario logado e passando os dados do banco
-            Session::setSession("user", $dataUser);
+            $id_da_session = session_id();
+            Session::setSession("user",                       $dataUser);
+            Session::setSession("ID_DA_SESSION",              $id_da_session);
+            Session::setSession("TEMPO_DA_SESSION",           time() + $this->segundo);
+            Session::setSession("IP_DA_SESSION",              $_SERVER['REMOTE_ADDR']);
+            Session::setSession("HTTP_USER_AGENT_DA_SESSION", $_SERVER['HTTP_USER_AGENT']);
+            Session::setSession("HTTP_HOST_DA_SESSION",       $_SERVER['HTTP_HOST']);
             return Redirector::redirectToRoute("/administrator",[
                 'success' => [
                     'Olá, Seja BemVindo(A): '.$dataUser['nome'],
@@ -71,9 +79,9 @@ trait Auth
 
     public function logoutAction()
     {
-        Session::destroySession('user');
-        return Redirector::redirectToRoute("/login", [
-            'info' => ['Obrigado ! Por acessar WorkSena...']
+        Session::destroySessionLogin();
+        return Redirector::redirectToRoute("/login",[
+            'info' => ['Até logo ! aguardamos você :)']
         ]);
     }//end action exitAction
 

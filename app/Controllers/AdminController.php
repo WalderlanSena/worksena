@@ -35,11 +35,10 @@ class AdminController extends Action
     // Action index do administrator
     public function indexAction()
     {
-        if (!$this->auth->verifyLogin()) {
-            return Redirector::redirectToRoute("/login", [
-                'errors' => ['É nessário está logado para acessar está página !']
-            ]);
-        }//end if
+        // Verificando a existencia de usúario logado no sistema
+		if (!$this->auth->verifyLogin() && Session::getSession('user')) {
+			return Redirector::redirectToRoute("/auth/logout",[]);
+		}
         // Retorna todos os últimos 5 posts registrados no banco de dados
         $this->view->posts = $this->post->readAll(5, null, "idArtigo DESC");
         // Setando o titulo da página
