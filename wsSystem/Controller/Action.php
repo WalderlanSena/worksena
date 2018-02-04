@@ -25,8 +25,9 @@ abstract class Action
     protected $inputs;           // Amazema os dados dos inputs temporariamente
     protected $action;           // Recebe o nome da action setada
 	protected $auth;		     // Recebe um objeto com os dados do usúario logado
-    private $pageTitle = null;   // Recebe o titulo da página
-    private $menu      = null;   // Recebe um array dinâmico com o menu das páginas
+    private $pageDescription = null;   // Recebe a descrição da metag description
+    private $pageTitle       = null;   // Recebe o titulo da página
+    private $menu            = null;   // Recebe um array dinâmico com o menu das páginas
 
 	public function __construct()
     {
@@ -133,5 +134,16 @@ abstract class Action
 		else
 			return $this->pageTitle;
 	}//end function getPageTitle
+
+    protected function setDescription($description)
+    {
+        $this->pageDescription = $description;
+    }
+
+    protected function getDescription()
+    {
+        return $this->pageDescription;
+    }
+
 
 }// end class Action

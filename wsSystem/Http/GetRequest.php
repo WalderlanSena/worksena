@@ -21,19 +21,35 @@ abstract class GetRequest
      */
     public static function get()
     {
-        // Cria um objeto como o nome obj
-        $newRequest = new \stdClass();
-        
-        // Recebe requisições via GET
-        foreach ($_GET as $key => $value)
-            $newRequest->get->$key = $value;
+        /**
+         *  @return Object
+         *  Retorna um objeto com o indice GET, onde as requisições post são capturadas
+         */
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $request    = [];
+            $objRequest = new \stdClass();
+            foreach ($_GET as $key => $value) {
+                $request[$key] = $value;
+            }
+            $objRequest->post = (object)$request;
+            return $objRequest;
+        }
 
-        // Recebe requisições via POST
-        foreach ($_POST as $key => $value)
-            $newRequest->post->$key = $value;
+        /**
+         *  @return Object
+         *  Retorna um objeto com o indice POST, onde as requisições post são capturadas
+         */
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $request    = [];
+            $objRequest = new \stdClass();
+            foreach ($_POST as $key => $value) {
+                $request[$key] = $value;
+            }
+            $objRequest->post = (object)$request;
+            return $objRequest;
+        }
 
-        // Retora os dados em forma de objeto
-        return $newRequest;
+        return false;
     }//end newGetRequest
 
 }//end class GetRequest

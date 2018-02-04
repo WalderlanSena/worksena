@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="title" content="<?php echo $this->getPageTitle("-") ?> WorkSena Framework">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="title" content="<?= $this->getPageTitle("-") ?> WorkSena Framework">
         <meta name="author" content="Walderlan Sena">
+        <meta name="description" content="<?= $this->getDescription() ?>" />
         <link rel="shortcut icon" href="/assets/imgs/favicon.png" />
-        <title><?php echo $this->getPageTitle("-") ?> WorkSena Framework</title>
+        <title><?= $this->getPageTitle("-") ?> WorkSena Framework</title>
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
     </head>

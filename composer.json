@@ -4,7 +4,7 @@
     "keywords": ["microframework","worksena","mvc"],
     "license": "MIT",
     "type": "project",
-    "version": "v1.1.5",
+    "version": "v1.2.7",
     "authors": [
         {
           "name": "Walderlan Sena",
@@ -14,12 +14,15 @@
         }
     ],
     "require": {
-      "php":">=5.6.4"
+        "php":">=5.6.4"
     },
     "autoload": {
       "psr-4": {
         "App\\":"app/",
         "WsSystem\\":"wsSystem/"
       }
+    },
+    "scripts": {
+        "serve": "php -S 0.0.0.0:8080 -t public/"
     }
 }

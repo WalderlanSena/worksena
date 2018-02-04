@@ -34,7 +34,7 @@
 </footer>
 <div class="copyright">
   <br>
-  <p class="text-center">&copy;  2013-2017, <strong>Mentes Virtuais Sena</strong> Theme By<p>
+  <p class="text-center">&copy;  2013 - <?= date('Y') ?> <strong>Mentes Virtuais Sena</strong> Theme By<p>
   <p class="text-center proibido">
     <i class="fa fa-warning" aria-hidden="true"></i> TEMA PADRÃO DO FRAMEWORK WORKSENA - BY MENTES VIRTUAIS SENA!
   </p>
