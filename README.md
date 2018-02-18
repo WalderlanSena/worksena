@@ -1,4 +1,4 @@
-<p align="center"><img src="http://www.walderlan.xyz/worksena-min.png"></p>
+<p align="center"><img src="https://worksena.xyz/assets/imgs/worksena-min.png"></p>
 
 <p align="center">
 <a href="#"><img src="https://github.com/WalderlanSena/tagsGit/blob/master/stableWorksena.svg"></a>
