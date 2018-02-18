@@ -2,7 +2,7 @@
 
 /**
  * --- WorkSena - Micro Framework ---
- * Trait Auth - Respónsavel por realiza a autenticação ao sistema
+ * Trait Auth - Responsavel por realiza a autenticação ao sistema
  * @license: https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
  * @copyright © 2013-2017 - @author: Walderlan Sena <walderlan@worksena.xyz>
@@ -39,7 +39,7 @@ trait Auth
         // Verificando se os campos não estão vazios
         if (ValidatorData::validatorField($auth, $this->user->rulesAuth())) {
             return Redirector::redirectToRoute("/login", [
-                'errors' => ["Ambos campos são Obigatórios para realizar o login !"]
+                'errors' => ["Ambos campos são Obrigatórios para realizar o login !"]
             ]);
         }//end if
         // Verificando se o email está correto
@@ -55,7 +55,7 @@ trait Auth
                 'nome'  => $result->nome,
                 'email' => $result->email
             ];
-            // Criando a session de usúario logado e passando os dados do banco
+            // Criando a session de usuario logado e passando os dados do banco
             $id_da_session = session_id();
             Session::setSession("user",                       $dataUser);
             Session::setSession("ID_DA_SESSION",              $id_da_session);
@@ -72,7 +72,7 @@ trait Auth
         }//end if
         // Caso o login não seja efetuado
         return Redirector::redirectToRoute("/login", [
-            'errors' => ['Oppis ! Login ou senha ínvalidos...'],
+            'errors' => ['Oppis ! Login ou senha invalidos...'],
             'inputs' => ['email' => $request->post->login]
         ]);
     }//end logarAction

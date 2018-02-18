@@ -2,7 +2,7 @@
 
 /**
  * --- WorkSena - Micro Framework ---
- * Componente de validação dos campos requiridos a aplicação
+ * Componente de validação dos campos requeridos a aplicação
  * Classe responsavel por realizar a validação dos dados
  * @license https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
@@ -13,14 +13,14 @@
 namespace WsSystem\Components\Validators;
 
 use WsSystem\Components\Sessions\Session;
-use WsSystem\Di\Container;
 
 abstract class ValidatorData
 {
     /**
      * Método que realiza campos de inserção via formulario na aplicação
-     * @param array com dados a serem validados
-     * @param array com as regras de validação
+     * @param array $data
+     * @param array $rules
+     * @return bool
      */
     public static function validatorField(array $data, array $rules)
     {
@@ -32,17 +32,17 @@ abstract class ValidatorData
             foreach ($data as $dataKey => $dataValue) {
                 // Se a regra for igual as dado referido
                 if ($rulesKey == $dataKey) {
-                    // Zerandoo $itemsValue
+                    // Zerando $itemsValue
                     $itemsValue = [];
                     // Verificação se há dupla verificação no mesmo campo
                     if (strpos($rulesValue, "|")) {
-                        // Sepandos os dados de verificação em um array
+                        // Separando os dados de verificação em um array
                         $itemsValue = explode("|", $rulesValue);
                         // Percorrendo os dados separadamente
                         foreach ($itemsValue as $itemValue) {
                             // Zerando o $subItems
                             $subItems = [];
-                            // Verificando se há o parâmentro de definição de caracteres
+                            // Verificando se há o parâmetros de definição de caracteres
                             if (strpos($itemValue, ":")) {
                                 $subItems = explode(":", $itemValue);
                                 // Inicia-se o processo de verificação
@@ -50,7 +50,7 @@ abstract class ValidatorData
                                     // Caso seja uma definição de tamanho minimo de caractere
                                     case 'min':
                                         if (strlen($dataValue) < $subItems[1])
-                                            $errors["$rulesKey"] = "O campo deve conter no mìnimo {$subItems[1]} caracteres !";
+                                            $errors["$rulesKey"] = "O campo deve conter no minimo {$subItems[1]} caracteres !";
                                             break;
                                     // Caso seja uma definição de tamanho máximo de caractere
                                     case 'max':
@@ -64,7 +64,7 @@ abstract class ValidatorData
                                     // Verificando se o campo está vazio
                                     case 'required':
                                         if ($dataValue == ' ' || empty($dataValue))
-                                            $errors["$rulesKey"] = "O campo {$rulesKey} é requirido !";
+                                            $errors["$rulesKey"] = "O campo {$rulesKey} é requerido !";
                                         break;
                                     // Verificando se o campo é um email
                                     case 'email':
@@ -90,7 +90,7 @@ abstract class ValidatorData
                                     	if (!$res)
                                     	   $errors["$rulesKey"] = "O campo {$rulesKey} contem um data invalida !";
                                         break;
-                                    // Se os casos acimas não forem atentidos exucata o padrão
+                                    // Se os casos acima não forem atendidos executa o padrão
                                     default:
                                         break;
                                 }//end switch
@@ -106,7 +106,7 @@ abstract class ValidatorData
                             // Caso seja uma definição de tamanho minimo de caractere
                             case 'min':
                                 if (strlen($dataValue) < $itens[1])
-                                    $errors["$rulesKey"] = "O campo deve conter no mìnimo {$itens[1]} caracteres !";
+                                    $errors["$rulesKey"] = "O campo deve conter no minimo {$itens[1]} caracteres !";
                                 break;
                             // Caso seja uma definição de tamanho máximo de caractere
                             case 'max':
@@ -121,7 +121,7 @@ abstract class ValidatorData
                         // Verificando se o campo está vazio
                         case 'required':
                             if ($dataValue == ' ' || empty($dataValue))
-                                $errors["$rulesKey"] = "O campo {$rulesKey} é requirido !";
+                                $errors["$rulesKey"] = "O campo {$rulesKey} é requerido !";
                             break;
                         // Verificando se o campo é um email
                         case 'email':
@@ -145,20 +145,18 @@ abstract class ValidatorData
                         	$y = $data[2];
                         	$res = checkdate($m,$d,$y);
                         	if (!$res)
-                        	   $errors["$rulesKey"] = "O campo {$rulesKey} contem um data invalida !";
+                        	   $errors["$rulesKey"] = "O campo {$rulesKey} contem uma data invalida !";
                             break;
-                        // Se os casos acimas não forem atentidos exucata o padrão
+                        // Se os casos acima não forem atendidos executa o padrão
                         default:
                             break;
                     }//end switch
-                }//end if de verficação das chaves de verificação
+                }//end if de verificação das chaves de verificação
             }//end foreach data
         }//end foreach rules
 
         /**
          * Retornando os erros encontrado, caso existam
-         * @param recebe possiveies erros ocorridos
-         * @return true se existir erro e false se não houver
          */
         if ($errors) {
             // Se houver erros, retorna true

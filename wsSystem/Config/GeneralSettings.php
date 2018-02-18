@@ -10,13 +10,13 @@
  */
 
 /**
- * Selecione a localização do layout que você deseja ultilizar
- * Selicione a localização das messagem de notificação
- * @return configurações referente as localização
+ * Selecione a localização do layout que você deseja utilizar
+ * Selecione a localização das mensagem de notificação
+ * Retorna Configurações referente as localização
  */
 
 return [
-    // Layout a ser ultilizado na aplicação.
+    // Layout a ser utilizado na aplicação.
     'layoutLocation' => '../app/Views/templates/ws-default/layout.php',
     // Localização das views com as flash message.
     'notifyMessage'  => '../app/Views/notify/'

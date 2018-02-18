@@ -16,11 +16,15 @@ namespace WsSystem\Database;
 
 abstract class Database
 {
+    /**
+     *  Recebe a conexão com o banco de dados
+     *  @var $pdo
+     */
     private static $pdo;
 
     /**
-     *  Realizando a busca pelo arquivo com as configurações referentes ao banco
-     *  @return Array com as configurações definidas
+     * Realizando a busca pelo arquivo com as configurações referentes ao banco
+     * @return mixed
      */
     private static function findData()
     {
@@ -31,8 +35,8 @@ abstract class Database
     }//end findData
 
     /**
-     *  Método que realiza a conexão com o banco de dados
-     *  @return conexão PDO com o banco selecionado
+     * Método que realiza a conexão com o banco de dados
+     * @return \PDO|string
      */
     public static function getConection()
     {

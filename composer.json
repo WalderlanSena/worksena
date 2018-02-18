@@ -1,10 +1,10 @@
 {
     "name": "mvs/worksena",
     "description": "Micro Framework PHP",
-    "keywords": ["microframework","worksena","mvc"],
+    "keywords": ["micro-framework","worksena","mvc", "framework-PHP"],
     "license": "MIT",
     "type": "project",
-    "version": "v1.2.7",
+    "version": "v1.3.10",
     "authors": [
         {
           "name": "Walderlan Sena",

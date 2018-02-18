@@ -5,7 +5,7 @@
  *  @author     Walderlan Sena - <walderlan@worksena.xyz>
  *  @license    MIT <https://opensource.org/licenses/MIT>
  *  @warning    Redistributions of files must retain the above copyright notice.
- *  @version    v0.0.1 - <https://github.com/WalderlanSena/worksena>
+ *  @version    v1.3.10 - <https://github.com/WalderlanSena/worksena>
  *  @link       <https://www.worksena.xyz>
  *  @copyright  Mentes Virtuais Sena © <https://www.mentesvirtuaissena.com>
  *

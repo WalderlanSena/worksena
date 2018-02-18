@@ -6,12 +6,12 @@ use WsSystem\Model\Model;
 
 class Usuarios extends Model
 {
-    // Sobrescrevendo table da classe pai
+    // Subscreve o atributo da classe Pai (Ou seja a WsSystem\Model\Model)
     protected $_table = "Usuarios";
 
     /**
-     * Método que define as regras de validação de novos usuarios cadastrados
-     * @return Array com as regras de validação dos campos de formulario
+     * Método que define as regras de validação de novos usuarios cadastradas
+     * @return array
      */
     public function rules()
     {
@@ -23,8 +23,8 @@ class Usuarios extends Model
     }//end rules
 
     /**
-     *  Método que define as regras de validação do formulario de login
-     *  @return Array com as regras de validação do formulario de login
+     * Método que define as regras de validação de novos usuarios cadastradas
+     * @return array
      */
     public function rulesAuth(){
         return [

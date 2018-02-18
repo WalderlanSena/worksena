@@ -6,12 +6,13 @@ use WsSystem\Model\Model;
 
 class Artigos extends Model
 {
-	// Sobescreve atributo da classe Pai(Ou seja a Model)
+	// Subscreve o atributo da classe Pai (Ou seja a WsSystem\Model\Model)
 	protected $_table = "Artigos";
-	/**
-	 * Método que define as regras de validação de novos usuarios cadastrados
-	 * @return Array com as regras de validação dos campos de formulario
-	 */
+
+    /**
+     * Método que define as regras de validação de novos usuarios cadastradas
+     * @return array
+     */
 	public function rules()
 	{
 		return  [

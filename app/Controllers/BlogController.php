@@ -43,7 +43,7 @@ class BlogController extends Action
 	public function post($id)
 	{
 		// Verificando retorno da busca pelo post solicitado pela rota
-		if(!$this->view->posts = $this->post->where("link", "$id")){
+		if(!$this->view->posts = $this->post->where("link", "$id[0]")){
 			return Redirector::redirectToRoute("/404");
 		}//end if
 		// Setando o titulo da página de listagem de posts
@@ -51,5 +51,12 @@ class BlogController extends Action
 		// Renderizando a view responsavel pela exibição das postagens
 		return $this->render("blogpost");
 	}//end action post
+
+
+    public function teste($id)
+    {
+        echo "<pre>";
+        print_r($id);
+    }
 
 }//end classe

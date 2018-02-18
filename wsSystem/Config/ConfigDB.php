@@ -12,9 +12,9 @@
  */
 
 /**
- * Selecione o Banco que deseja ultilizar - Default é Mysql
- * @return configurações referente ao banco de dados
+ * configurações referente ao banco de dados, Selecione o Banco que deseja utilizar - Default é Mysql.
  */
+
 return [
 	'driver' => 'Mysql',
 

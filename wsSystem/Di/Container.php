@@ -18,10 +18,9 @@ use WsSystem\Database\Database;
 abstract class Container
 {
     /**
-     * Método que retorna um novo controler
-     * @param recebe o nome do controller a ser instaciado
-     * @return retorna um objeto controller
-     *
+     * Método que retorna um novo controller
+     * @param $controller
+     * @return mixed
      */
     public static function newController($controller)
     {
@@ -31,8 +30,8 @@ abstract class Container
 
     /**
      * Método que retorna um novo model
-     * @param recebe o nome da model ser instanciada
-     * @return retorna um objeto model
+     * @param $model
+     * @return mixed
      */
     public static function getModel($model)
     {
@@ -42,14 +41,15 @@ abstract class Container
 
     /**
      * Método de erro 404
-     * @return retona a página de erro 404
+     * @return mixed
      */
     public static function pageNotFound()
     {
-        if (file_exists("../app/Views/errors/404.php"))
-	        return require_once "../app/Views/errors/404.php";
-        else
- 	        echo "Erro: Página não encontrada...";
+        if (file_exists("../app/Views/errors/404.php")) {
+            return require_once "../app/Views/errors/404.php";
+        } else {
+            echo "Erro: Página não encontrada...";
+        }
     }//end método pageNotFound
 
 }//end classe Container

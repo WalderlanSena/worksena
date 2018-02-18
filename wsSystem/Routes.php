@@ -16,34 +16,36 @@ use WsSystem\Run\Bootstrap;
 
 class Routes extends Bootstrap
 {
-    // Método abstrato(Da Classe Bootstrap) para especificar todas as rotas do sistema
+    /**
+     * Método abstrato (Da Classe Bootstrap) para especificar todas as rotas do sistema
+     */
     protected function initRoutes()
     {
         /**
          * Ex: Rotas padrões da aplicação
-         * Parâmentros a serem passados na criação de novas rotas
+         * Parâmetros a serem passados na criação de novas rotas
          * @param 1 - ('rota acessada', 'Controller', 'Action')
          * @param 2 - Os parâmetros de rotas devem ser passados entre {}, ex: {id}
          *
          */
-        $route[] = array('/','IndexController','indexAction');
+        $route[] = ['/','IndexController','indexAction'];
 
-        $route[] = array('/login','UserController','loginAction');
-        $route[] = array('/auth/login','UserController','logarAction');
+        $route[] = ['/login','UserController','loginAction'];
+        $route[] = ['/auth/login','UserController','logarAction'];
 
-        $route[] = array('/cadastre-se','UserController','novocadastroAction');
-        $route[] = array('/novo/registro','UserController','cadastrandoAction');
+        $route[] = ['/cadastre-se','UserController','novocadastroAction'];
+        $route[] = ['/novo/registro','UserController','cadastrandoAction'];
 
-        $route[] = array('/blog','BlogController','index');
-        $route[] = array('/blog/post/{id}','BlogController','post');
+        $route[] = ['/blog','BlogController','index'];
+        $route[] = ['/blog/post/{id}','BlogController','post'];
+        $route[] = ['/curso/{id}/aula/{id}/aluno/{id}','BlogController','teste'];
 
-        $route[] = array('/administrator','AdminController','indexAction');
-        $route[] = array('/administrator/createnewpost','AdminController', 'createNewPost');
-        $route[] = array('/auth/logout','UserController', 'logoutAction');
+        $route[] = ['/administrator','AdminController','indexAction'];
+        $route[] = ['/administrator/createnewpost','AdminController', 'createNewPost'];
+        $route[] = ['/auth/logout','UserController', 'logoutAction'];
 
         /**
          * Seta as rotas via parâmetro para o método setRoutes
-         * @param Array com as rotas da aplicação
          */
         $this->setRoutes($route);
     }//end initRoutes

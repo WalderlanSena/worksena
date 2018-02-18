@@ -26,7 +26,7 @@ class AuthUser
         if (Session::getSession("user")) {
             // Capturando os dados do array que estão na Session
             $userData    = Session::getSession("user");
-            // Atribuindos os dados aos atributos da classe
+            // Atribuindo os dados aos atributos da classe
             $this->id    = $userData['id'];
             $this->nome  = $userData['nome'];
             $this->email = $userData['email'];
@@ -34,7 +34,8 @@ class AuthUser
     }//end método construct
 
     /**
-     * @return o id do usuario logado no momento
+     * Retorna id do usuario logado
+     * @return mixed
      */
     public function getId()
     {
@@ -42,7 +43,8 @@ class AuthUser
     }//end getID
 
     /**
-     * @return o nome do usuario logado no momento
+     * Retorna o nome do usuario logado
+     * @return mixed
      */
     public function getNome()
     {
@@ -50,7 +52,8 @@ class AuthUser
     }//end getNome
 
     /**
-     * @return o email do usuario logado no momento
+     * Retorno o email do usuario logado
+     * @return mixed
      */
     public function getEmail()
     {
@@ -58,7 +61,7 @@ class AuthUser
     }//end método getEmail
 
     /**
-     * @return true se o usúario estiver logado
+     * @return true se o usuario estiver logado
      */
     public function verifyLogin()
     {
@@ -71,7 +74,7 @@ class AuthUser
                 // Se a id da sessão do usúario não for igual a session atual
                 return false;
             } else if (Session::getSession('TEMPO_DA_SESSION') < time()) {
-                // Se o tempo da sessião for ultrapassado
+                // Se o tempo da sessão for ultrapassado
                 Session::destroySessionLogin();
                 // Redireciona para a view de login após destruir todas as sessions
                 return Redirector::redirectToRoute("/login", [
@@ -85,9 +88,9 @@ class AuthUser
                 return true;
             }//end if
         } else {
-            // Caso não exista nenhuma session ativa, ou seja o usúario não está logado
+            // Caso não exista nenhuma session ativa, ou seja o usuario não está logado
             return Redirector::redirectToRoute("/login",[
-				'errors' => ['<b>Desculpe, Área Restrita !</b> É nescessário está logado para acessar está página !']
+				'errors' => ['<b>Desculpe, Área Restrita !</b> É necessário está logado para acessar está página !']
 			]);
         }//end if
     }//end método verifyLogin

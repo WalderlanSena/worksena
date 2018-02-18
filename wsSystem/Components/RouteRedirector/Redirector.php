@@ -17,9 +17,9 @@ use WsSystem\Components\Sessions\Session;
 abstract class Redirector
 {
     /**
-     * Método statico responsavel pelo Redirecionamento apartir do parametro(rota) passado
-     * @param rota a ser redirecionada @param Mesagem de notificação ao usuário
-     * @return redirection route
+     * Método estatico responsavel pelo Redirecionamento a partir do parametro(rota) passado
+     * @param $route
+     * @param array $message
      */
     public static function redirectToRoute($route, $message = [])
     {
@@ -27,7 +27,7 @@ abstract class Redirector
         if (count($message) > 0)
             foreach ($message as $key => $value)
                 Session::setSession($key, $value);
-                // Se não passado apensa realiaza o redirecionamento
+                // Se não passado apensa realiza o redirecionamento
                 return header("Location: $route");
     }//end método setRedirector
 

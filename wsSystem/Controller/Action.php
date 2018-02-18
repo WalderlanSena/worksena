@@ -3,7 +3,7 @@
 /**
  * --- WorkSena - Micro Framework ---
  * Classe abstrata responsavel por renderizar o layout
- * Caso o mesmo exista e seja setado no controller. Também a definição de configurações
+ * Caso o mesmo exista e seja setando no controller. Também a definição de configurações
  * das views da aplicação...
  * @license https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
@@ -18,38 +18,39 @@ use WsSystem\Authentication\AuthUser;
 
 abstract class Action
 {
-    protected $view;             // Recebe o objeto pardão stdClass
-    protected $success;          // Flash messages de sucesso
-	protected $errors;           // Flash messages de erro
-    protected $info;             // Flash messages de informação
-    protected $inputs;           // Amazema os dados dos inputs temporariamente
-    protected $action;           // Recebe o nome da action setada
-	protected $auth;		     // Recebe um objeto com os dados do usúario logado
-    private $pageDescription = null;   // Recebe a descrição da metag description
+    protected $view;                   // Recebe o objeto padrão stdClass
+    protected $success;                // Flash messages de sucesso
+	protected $errors;                 // Flash messages de erro
+    protected $info;                   // Flash messages de informação
+    protected $inputs;                 // Armazena os dados dos inputs temporariamente
+    protected $action;                 // Recebe o nome da action setada
+	protected $auth;		           // Recebe um objeto com os dados do usuario logado
+    private $pageDescription = null;   // Recebe a descrição da meta tags description
     private $pageTitle       = null;   // Recebe o titulo da página
-    private $menu            = null;   // Recebe um array dinâmico com o menu das páginas
+    private $config;
 
 	public function __construct()
     {
         // Criando e inicializando um objeto view
 		$this->view = new \stdClass();
         $this->auth = new AuthUser();
-		// Variável que recbe as configurações padrões da aplicação
+
+        // Variável que recebe as configurações padrões da aplicação
 		$this->config = self::findDataSettings();
 
-        // Inicializando flash messagem da aplicação
+        // Inicializando flash mensagem da aplicação
 
         // Mensagem padrão para operações de sucesso
         if (Session::getSession('success')) {
             $this->success = Session::getSession('success');
             Session::destroySession('success');
         }//end if
-        // Mensaegem padrão para operações de erros
+        // Mensagem padrão para operações de erros
         if (Session::getSession('errors')) {
             $this->errors = Session::getSession('errors');
             Session::destroySession('errors');
         }//end if
-		// Mensaegem padrão para operações de info
+		// Mensagem padrão para operações de info
         if (Session::getSession('info')) {
             $this->info = Session::getSession('info');
             Session::destroySession('info');
@@ -71,9 +72,10 @@ abstract class Action
 			return require "../wsSystem/Config/GeneralSettings.php";
 	}//end findDataSettings
 
-	/**
-     * Renderizando a action e layout
-     * @param nome da action a ser renderizada, e se o layout padrão será setado
+    /**
+     * @param $action
+     * @param bool $layout
+     * @return mixed|void
      */
 	public function render($action, $layout = true)
     {
@@ -81,16 +83,16 @@ abstract class Action
         $this->action = $action;
         // Verifica se o layout existe. E Se caso o mesmo exista será incluido
 		if ($layout == true && file_exists($this->config['layoutLocation'])) {
-			include_once $this->config['layoutLocation'];
+		    include_once $this->config['layoutLocation'];
 		} else {
             // Caso não aja um layout existente, ou não seja solicitado, e carregado o content
-			$this->content();
+            $this->content();
 		}//end if
 	}//end function render
 
     /**
-     * Redenrizando as flash mensagens
-     * @param nome da view de flash a ser renderizada
+     * Renderizando as flash mensagens
+     * @param $layoutLocation
      */
     public function renderNotify($layoutLocation)
     {
@@ -100,12 +102,14 @@ abstract class Action
             echo "Erro: Layout de notificação padrão não encontrado !";
     }//end renderNotify
 
-	// Renderiza o content da Aplicação
+    /**
+     *  Renderiza o content da Aplicação
+     */
 	public function content()
     {
 		// Captura o nome da class atual
 		$current   = get_class($this);
-		// Remove o caminho desnecéssario somente o nome do controller
+		// Remove o caminho desnecessários somente o nome do controller
 		$ClassName = strtolower(str_replace("App\\Controllers\\", "", $current));
 		// Remove a palavra Controller, para corrigir o nome do diretorio da view
 		$filterFolder = str_replace("controller","", $ClassName);
@@ -115,7 +119,7 @@ abstract class Action
 
     /**
      * Configurando titulo dinâmico para as views
-     * @param seta o nome da página dinâmicamente
+     * @param $pageTitle
      */
 	protected function setPageTitle($pageTitle)
     {
@@ -124,8 +128,8 @@ abstract class Action
 
     /**
      * Adiciona separador no titulo da página
-     * @param adicionado ums separador no titulo dinâmicamente
-	 * @return O titulo da página dinâmicamente
+     * @param null $separator
+     * @return null|string
      */
 	protected function getPageTitle($separator = null)
     {
@@ -135,11 +139,17 @@ abstract class Action
 			return $this->pageTitle;
 	}//end function getPageTitle
 
+    /**
+     * @param $description
+     */
     protected function setDescription($description)
     {
         $this->pageDescription = $description;
     }
 
+    /**
+     * @return null
+     */
     protected function getDescription()
     {
         return $this->pageDescription;

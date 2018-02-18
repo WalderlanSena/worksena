@@ -15,8 +15,8 @@ namespace WsSystem\Components\Sessions;
 abstract class Session
 {
     /**
-     * @param $key nome da session que será criada
-     * @param $val valor que recebera a session
+     * @param $key
+     * @param $val
      */
     public static function setSession($key, $val)
     {
@@ -24,9 +24,8 @@ abstract class Session
     }//end método setSession
 
     /**
-     * @param key referente a Session a ser capturada
-     * @return a session e seu repectivo valor ou
-     * @return false caso não encontre a mesma
+     * @param $key
+     * @return bool
      */
     public static function getSession($key)
     {
@@ -38,7 +37,7 @@ abstract class Session
     }//end método getSession
 
     /**
-     * @param key referente a Session a ser destruida
+     * @param $keys
      */
     public static function destroySession($keys)
     {
@@ -55,9 +54,9 @@ abstract class Session
     }//end método destroySession
 
     /**
-     *  Método para destruir sessiões criadas pelo sistema de login
+     * Método para destruir Session criadas pelo sistema de login
      */
-    public function destroySessionLogin()
+    public static function destroySessionLogin()
     {
         Session::destroySession("user");
         Session::destroySession("ID_DA_SESSION");

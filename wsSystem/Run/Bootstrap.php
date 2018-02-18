@@ -31,13 +31,14 @@ abstract class Bootstrap
     }//end construct
 
     /**
-     *  Método abstrado para especificar as rotas do sistema
+     *  Método abstrato para especificar as rotas do sistema
      */
     abstract protected function initRoutes();
 
     /**
      * Captura as rotas solicitadas via Url
-     * @param passando rotas capturadas via URL
+     * Passando rotas capturadas via URL
+     * @param $url
      */
     protected function run($url)
     {
@@ -51,13 +52,13 @@ abstract class Bootstrap
     		$routeBase = explode("/", $route[0]);
     		// Percorre as rotas cadastradas no sistema
     		for ($i = 0; $i < count($routeBase); $i++) {
-    			// Verifica se há paramêtros nas rotas cadastradas
+    			// Verifica se há parâmetros nas rotas cadastradas
     			if ((strpos($routeBase[$i], "{") !== false) && (count($request) == count($routeBase))) {
     				// Se hover substitui o valor de {id} pelo passado na requisição
     				$routeBase[$i]  = $request[$i];
     				$this->params[] = $request[$i];
     			}//end if
-    			// Remontando a rota com o paramêntro passado
+    			// Remontando a rota com os parâmetros passados
     			$route[0] = implode($routeBase, "/");
     		}//end for
     		// Verifica se a rota existe
@@ -75,37 +76,22 @@ abstract class Bootstrap
 	    if ($routeFound) {
     		// Instanciando o controller
     		$controller = Container::newController($controller);
-    		// Varificando a quantidade de paramentros
-    		switch (count($this->params)) {
-                // Caso um parâmetro tenha sido passado
-    			case 1:
-                    if(method_exists($controller, $action))
-    				    $controller->$action($this->params[0], GetRequest::get());
-                    else
-                        Container::pageNotFound();
-    				break;
-                // Caso dois parâmetro tenha sido passado
-    			case 2:
-                    if(method_exists($controller, $action))
-    				    $controller->$action($this->params[0], $this->params[1], GetRequest::get());
-                    else
-                        Container::pageNotFound();
-    				break;
-                // Caso três parâmetro tenha sido passado
-    			case 3:
-                    if(method_exists($controller, $action))
-    				    $controller->$action($this->params[0], $this->params[1], $this->params[2], GetRequest::get());
-                    else
-                        Container::pageNotFound();
-    				break;
-                // Caso nenhum parâmetro tenha sido passado
-    			default:
-                    if(method_exists($controller, $action))
-    				    $controller->$action(GetRequest::get());
-                    else
-                        Container::pageNotFound();
-                    break;
-    		}//end switch
+            /**
+             *  Verificando e passando os parâmetros para a rota
+             */
+            if (count($this->params)) {
+                if (method_exists($controller, $action)) {
+                    $controller->$action(array_filter($this->params), GetRequest::getRequests());
+                } else {
+                    Container::pageNotFound();
+                }//end if
+            } else {
+                if (method_exists($controller, $action)) {
+                    $controller->$action(GetRequest::getRequests());
+                } else {
+                    Container::pageNotFound();
+                }//end if
+            }//end if
 	    } else {
             // Se a página não foi encontrada - Erro 404
 		    Container::pageNotFound();
@@ -122,7 +108,8 @@ abstract class Bootstrap
     }//end setRoutes
 
     /**
-     * @return retorna as requisições de rotas do usuário
+     * Retorna as requisições de rotas do usuário
+     * @return mixed
      */
     protected function getUrl()
     {

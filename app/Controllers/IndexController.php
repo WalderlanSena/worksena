@@ -17,8 +17,7 @@ use WsSystem\Controller\Action;
 class IndexController extends Action
 {
     /**
-     * ActionIndex - Primeira view a ser chamada pela app
-     * @return Render view Index 
+     * @return Render view Index
      */
 	public function indexAction()
     {

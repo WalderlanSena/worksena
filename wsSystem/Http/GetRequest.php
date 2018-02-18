@@ -2,8 +2,8 @@
 
 /**
  * --- WorkSena - Micro Framework ---
- * GetRequest - Captura as solicitaçẽos via GET e POST da aplicação
- * Tranforma as requisições no tipo objeto e disponibiliza para o controller
+ * GetRequest - Captura as solicitações via GET e POST da aplicação
+ * Transforma as requisições no tipo objeto e disponibiliza para o controller
  * @license: https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
  * @copyright © 2013-2017 - @author: Walderlan Sena
@@ -15,11 +15,10 @@ namespace WsSystem\Http;
 abstract class GetRequest
 {
     /**
-     * Método responsavel pela captura das requisições atualmente suportadas pelo
-     * Micro-framework
-     * @return Requisições via GET ou POST
+     * Método responsavel pela captura das requisições HTTP
+     * @return bool|\stdClass
      */
-    public static function get()
+    public static function getRequests()
     {
         /**
          *  @return Object
@@ -31,7 +30,7 @@ abstract class GetRequest
             foreach ($_GET as $key => $value) {
                 $request[$key] = $value;
             }
-            $objRequest->post = (object)$request;
+            $objRequest->get = (object)$request;
             return $objRequest;
         }
 

@@ -16,11 +16,12 @@ namespace WsSystem\Model;
 abstract class Model
 {
     private $db;        //Atributo que recebe retorno da conexão com o banco de dados
-    protected $_table;  //Atributo que será sobscrito por uma model setada
+    protected $_table;  //Atributo que será subscrito por uma model setada
 
     /**
      * Inicializando conexão com o banco dados, recebendo a conexão via parâmetro
-     * @param Recebe um objeto do tipo PDO
+     * Model constructor.
+     * @param \PDO $connection
      */
     public function __construct(\PDO $connection)
     {
@@ -32,8 +33,10 @@ abstract class Model
      * ReadAll - Lendo todos os dados
      * Método que retorna de dados do banco de forma geral, ou seja, retorna todos os dados
      * da tabela a qual foi setada
-     * @param ('limite de resultados','offset do result','ordernação dos dados')
-     * @return Todos dos dados encontrados no banco
+     * @param null $limit
+     * @param null $offset
+     * @param null $orderby
+     * @return array
      */
     public function readAll($limit = null, $offset = null, $orderby = null)
     {
@@ -44,34 +47,34 @@ abstract class Model
 
         // Montando query de pesquisa
         $sql  = "SELECT * FROM `{$this->_table}` {$orderby} {$limit} {$offset}";
-        // Preparando para inicar a busca pelos dados
+        // Preparando para iniciar a busca pelos dados
         $stmt = $this->db->prepare($sql);
         // Executando a query
         $stmt->execute();
         $result = $stmt->fetchAll();
         // Fechando o ponteiro
         $stmt->CloseCursor();
-        // Retora os dados encontrados na tabela
+        // Retorna os dados encontrados na tabela
         return $result;
     }//end método readAll
 
     /**
      * where - Lendo apenas um dados setado
-     * Método que retorna apenas um dado referente ao campo que foi setado
-     * @param ('coluna','valor que define a coluna')
-     * @return dado encontrado no banco
+     * @param $column
+     * @param $value
+     * @return mixed
      */
     public function where($column, $value)
     {
         // Montando query de pesquisa
         $sql  = "SELECT * FROM `{$this->_table}` WHERE $column = ?";
-        // Preparando para inicar a busca pelos dados
+        // Preparando para iniciar a busca pelos dados
         $stmt = $this->db->prepare($sql);
         // Passando os valores pelo filtro PDO e repassando para a query
         $stmt->bindValue(1, $value);
         // Executando a query
         $stmt->execute();
-        // Tranformando o retorno em objeto, e passando para a variavel $result
+        // Transformando o retorno em objeto, e passando para a variavel $result
         $result = $stmt->fetch();
         // Fechando o ponteiro
         $stmt->CloseCursor();
@@ -80,26 +83,27 @@ abstract class Model
     }//end método where
 
     /**
-     *  Update - atualizando dados do banco
-     *  Método que realiza a atualização dos campos dos quais foram setados
-     *  @param Array com os dados a serem atualizados, coluna e valor
-     *  @return True caso os dados sejam atualizados
+     * Update - atualizando dados do banco
+     * @param array $dados
+     * @param $column
+     * @param $value
+     * @return bool
      */
     public function update(array $dados, $column, $value)
     {
-        // Percorrendos os dados e filtrando para as posições respectivas
+        // Percorrendo os dados e filtrando para as posições respectivas
         foreach ($dados as $indice => $values) {
             $setData[] = "{$indice} = ?";
             $bindVal[] = "$values";
         }
-        /* Variavel de represantação numera da quantidade de campos a serem passadas no
+        /* Variavel de representação numera da quantidade de campos a serem passadas no
        bindValue*/
        $numBind = 1;
        // Montando os campos com ,
        $campos = implode(", ", $setData);
        // Montando query de update
        $sql = "UPDATE `{$this->_table}` SET {$campos} WHERE $column = ?";
-       // Preparando para inicar a busca pelos dados
+       // Preparando para iniciar a busca pelos dados
        $stmt = $this->db->prepare($sql);
        // Laço for para montar os bindvalues respectivos
        for ($i = 0; $i < count($dados); $i++) {
@@ -124,9 +128,9 @@ abstract class Model
      */
     public function insert(array $dados)
     {
-        // Tratandos dados recebidos no array
+        // Tratando dados recebidos no array
         $valuesQuery = "";
-        /* Variavel de represantação numera da quantidade de campos a serem passadas no
+        /* Variavel de representação numera da quantidade de campos a serem passadas no
            bindValue*/
         $numBind = 1;
         // For para realiza a montagem variaveis com os valores simbolicos que serão
@@ -158,10 +162,11 @@ abstract class Model
     }//end método insert
 
     /**
-     * delete - Deletando os dados setados
+     * Delete - Deletando os dados setados
      * Método que deleta o dado referente ao campo que foi setado
-     * @param ('Coluna','valor único que à define')
-     * @return true caso os dados sejam deletados com sucesso
+     * @param $column
+     * @param $value
+     * @return bool
      */
     public function delete($column, $value)
     {
