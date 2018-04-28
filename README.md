@@ -27,7 +27,7 @@ O projeto é patrocinado e mantido por:
 
 <p align="center">
 	<a href="https://www.mentesvirtuaissena.com">
-		<img src="https://www.mentesvirtuaissena.com/App/Views/public/img/logoMvs.png" width="250">
+		<img src="https://www.mentesvirtuaissena.com/assets/img/logoMvs.png" width="250">
 	</a>
 </p>
 
