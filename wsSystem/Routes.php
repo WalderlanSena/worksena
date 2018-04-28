@@ -24,7 +24,7 @@ class Routes extends Bootstrap
         /**
          * Ex: Rotas padrões da aplicação
          * Parâmetros a serem passados na criação de novas rotas
-         * @param 1 - ('rota acessada', 'Controller', 'Action')
+         * @param 1 - ('rota acessada', 'Controller', 'AbstractActionController')
          * @param 2 - Os parâmetros de rotas devem ser passados entre {}, ex: {id}
          *
          */

@@ -28,13 +28,13 @@ class AuthUser
             $userData    = Session::getSession("user");
             // Atribuindo os dados aos atributos da classe
             $this->id    = $userData['id'];
-            $this->nome  = $userData['nome'];
+            $this->name  = $userData['nome'];
             $this->email = $userData['email'];
         }//end if
     }//end método construct
 
     /**
-     * Retorna id do usuario logado
+     * Retorna id do usuário logado
      * @return mixed
      */
     public function getId()
@@ -43,16 +43,16 @@ class AuthUser
     }//end getID
 
     /**
-     * Retorna o nome do usuario logado
+     * Retorna o nome do usuário logado
      * @return mixed
      */
     public function getNome()
     {
-        return $this->nome;
+        return $this->name;
     }//end getNome
 
     /**
-     * Retorno o email do usuario logado
+     * Retorno o email do usuário logado
      * @return mixed
      */
     public function getEmail()
@@ -61,7 +61,7 @@ class AuthUser
     }//end método getEmail
 
     /**
-     * @return true se o usuario estiver logado
+     * @return true se o usuário estiver logado
      */
     public function verifyLogin()
     {
@@ -71,7 +71,7 @@ class AuthUser
             $id_da_session = session_id();
             // Verificando requisitos das sessions existentes
             if (Session::getSession('ID_DA_SESSION') != $id_da_session) {
-                // Se a id da sessão do usúario não for igual a session atual
+                // Se a id da sessão do usuário não for igual a session atual
                 return false;
             } else if (Session::getSession('TEMPO_DA_SESSION') < time()) {
                 // Se o tempo da sessão for ultrapassado
@@ -88,7 +88,7 @@ class AuthUser
                 return true;
             }//end if
         } else {
-            // Caso não exista nenhuma session ativa, ou seja o usuario não está logado
+            // Caso não exista nenhuma session ativa, ou seja o usuário não está logado
             return Redirector::redirectToRoute("/login",[
 				'errors' => ['<b>Desculpe, Área Restrita !</b> É necessário está logado para acessar está página !']
 			]);

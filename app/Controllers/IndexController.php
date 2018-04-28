@@ -12,9 +12,9 @@
 
 namespace App\Controllers;
 
-use WsSystem\Controller\Action;
+use WsSystem\Controller\AbstractActionController;
 
-class IndexController extends Action
+class IndexController extends AbstractActionController
 {
     /**
      * @return Render view Index
@@ -22,7 +22,7 @@ class IndexController extends Action
 	public function indexAction()
     {
         // Seta um titulo dinâmico para view
-		$this->setPageTitle("WorkSena - Default Themes");
+		$this->setPageTitle("WorkSena - Default Themes - WorkSena Micro Framework");
 		// Renderizando a view
 	    return $this->render("index");
 	}//end action index

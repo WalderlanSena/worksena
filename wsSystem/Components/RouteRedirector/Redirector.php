@@ -2,7 +2,7 @@
 
 /**
  * --- WorkSena - Micro Framework ---
- * Componente de Redirecionamento automatico da aplicação
+ * Componente de Redirecionamento automático da aplicação
  * Classe de Redirecionamento de rotas
  * @license https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
@@ -17,7 +17,7 @@ use WsSystem\Components\Sessions\Session;
 abstract class Redirector
 {
     /**
-     * Método estatico responsavel pelo Redirecionamento a partir do parametro(rota) passado
+     * Método estático responsável pelo Redirecionamento a partir do parâmetro (rota) passado
      * @param $route
      * @param array $message
      */

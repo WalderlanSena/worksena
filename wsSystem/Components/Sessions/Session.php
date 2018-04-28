@@ -3,7 +3,7 @@
 /**
  * --- WorkSena - Micro Framework ---
  * Componente de configuração de Sessions
- * Classe responsavel por atribuições via session
+ * Classe responsável por atribuições via session
  * @license https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
  * @copyright © 2013-2017 - @author Walderlan Sena <walderlan@worksena.xyz>

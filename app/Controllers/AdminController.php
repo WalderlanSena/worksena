@@ -12,30 +12,29 @@
 
 namespace App\Controllers;
 
-use WsSystem\Controller\Action;
+use WsSystem\Controller\AbstractActionController;
 use WsSystem\Di\Container;
 use WsSystem\Components\RouteRedirector\Redirector;
 use WsSystem\Components\Validators\ValidatorData;
 use WsSystem\Components\Sessions\Session;
 
-class AdminController extends Action
+class AdminController extends AbstractActionController
 {
     private $post; // Atributo que recebe o retorno do objeto Model a ser trabalhado
-    private $user; // Atributo que recebe o retorno do objeto Model a ser trabalhado
 
     //  Método construct
     public function __construct()
     {
         // Mantendo o construtor da classe Pai
         parent::__construct();
-        // Setando o trabalho com a Model Artigos
+        // Configurando o Model Artigos
         $this->post = Container::getModel("Artigos");
-    }//end metodo
+    }//end
 
     // Action index do administrator
     public function indexAction()
     {
-        // Verificando a existencia de usúario logado no sistema
+        // Verificando a existência de usuário logado no sistema
 		if (!$this->auth->verifyLogin() && Session::getSession('user')) {
 			return Redirector::redirectToRoute("/auth/logout",[]);
 		}
@@ -72,7 +71,7 @@ class AdminController extends Action
             ]);
 		} else {
 		    return Redirector::redirectToRoute("/administrator", [
-                'errors' => ['Não foi possivel inserir os dados desejados !']
+                'errors' => ['Não foi possível inserir os dados desejados !']
             ]);
 		}//end if
     }//end createNewPost

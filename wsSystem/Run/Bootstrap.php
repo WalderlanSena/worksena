@@ -19,7 +19,7 @@ use WsSystem\Http\GetRequest;
 abstract class Bootstrap
 {
     private $router; // Atributo que recebe as rotas cadastradas na aplicação
-    private $params; // Atributo que recebre os parêmetros passados pelo usuário
+    private $params; // Atributo que recebe os parâmetros passados pelo usuário
 
     /**
      *  Inicializando a captura e setando as rotas

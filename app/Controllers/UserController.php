@@ -2,7 +2,7 @@
 
 /**
  * --- WorkSena - Micro Framework ---
- * UserController - Controller que realiza operações pertinetes aos usuario
+ * UserController - Controller que realiza operações pertinentes aos usuário
  * @license: https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
  * @copyright © 2013-2017 - @author: Walderlan Sena <walderlan@worksena.xyz>
@@ -11,15 +11,15 @@
 
 namespace App\Controllers;
 
-use WsSystem\Controller\Action;
+use WsSystem\Controller\AbstractActionController;
 use WsSystem\Di\Container;
 use WsSystem\Components\Validators\ValidatorData;
 use WsSystem\Components\RouteRedirector\Redirector;
 use WsSystem\Authentication\Auth;
 
-class UserController extends Action
+class UserController extends AbstractActionController
 {
-    use Auth;   //Trait que realiza login e logout dos usuarios
+    use Auth;   //Trait que realiza login e logout dos usuários
 
     private $user;  // Atributo que receberá um objeto model
 
@@ -29,7 +29,7 @@ class UserController extends Action
         $this->user = Container::getModel("Usuarios");
     }//end construct
 
-    // Action que chama a página de cadastro de novos usuarios
+    // Action que chama a página de cadastro de novos usuários
     public function novocadastroAction()
     {
         // Setando o titulo da página
@@ -63,13 +63,13 @@ class UserController extends Action
         if ($this->user->insert($data)) {
             return Redirector::redirectToRoute("/cadastre-se",[
                 'success' => [
-                    'Usúario cadastrado com sucesso !  ',
+                    'Usuário cadastrado com sucesso !  ',
                     'Verifique seu email para confirmar o cadastro.'
                 ]
             ]);
         } else {
             return Redirector::redirectToRoute("/Cadastre-se",[
-                'errors' => ['Desculpe ! Não foi possivel realizar seu cadastro']
+                'errors' => ['Desculpe ! Não foi possível realizar seu cadastro']
             ]);
         }//end if
 

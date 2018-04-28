@@ -2,7 +2,7 @@
 
 /**
  * --- WorkSena - Micro Framework ---
- * Classe abstrata responsavel por renderizar o layout
+ * Classe abstrata responsável por renderizar o layout
  * Caso o mesmo exista e seja setando no controller. Também a definição de configurações
  * das views da aplicação...
  * @license https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
@@ -16,7 +16,7 @@ namespace WsSystem\Controller;
 use WsSystem\Components\Sessions\Session;
 use WsSystem\Authentication\AuthUser;
 
-abstract class Action
+abstract class AbstractActionController
 {
     protected $view;                   // Recebe o objeto padrão stdClass
     protected $success;                // Flash messages de sucesso
@@ -24,7 +24,7 @@ abstract class Action
     protected $info;                   // Flash messages de informação
     protected $inputs;                 // Armazena os dados dos inputs temporariamente
     protected $action;                 // Recebe o nome da action setada
-	protected $auth;		           // Recebe um objeto com os dados do usuario logado
+	protected $auth;		           // Recebe um objeto com os dados do usuário logado
     private $pageDescription = null;   // Recebe a descrição da meta tags description
     private $pageTitle       = null;   // Recebe o titulo da página
     private $config;
@@ -55,21 +55,23 @@ abstract class Action
             $this->info = Session::getSession('info');
             Session::destroySession('info');
         }//end if
-        // Captura padrão de dados inseridos nos campos dos formularios
+        // Captura padrão de dados inseridos nos campos dos formulários
         if (Session::getSession('inputs')) {
             $this->inputs = Session::getSession('inputs');
             Session::destroySession('inputs');
         }//endif
     }//end construct
 
-	/**
-	 *	Método que retorna as configurações padrão de localização de layout e mensagem
-	 *  @return Array com as configurações pertinentes as localizações de arquivos
-	 */
+    /**
+     * Método que retorna as configurações padrão de localização de layout e mensagem
+     * @return bool|mixed
+     */
 	private function findDataSettings()
 	{
-		if(file_exists("../wsSystem/Config/GeneralSettings.php"))
+		if(file_exists("../wsSystem/Config/GeneralSettings.php")) {
 			return require "../wsSystem/Config/GeneralSettings.php";
+        }
+        return false;
 	}//end findDataSettings
 
     /**
@@ -111,7 +113,7 @@ abstract class Action
 		$current   = get_class($this);
 		// Remove o caminho desnecessários somente o nome do controller
 		$ClassName = strtolower(str_replace("App\\Controllers\\", "", $current));
-		// Remove a palavra Controller, para corrigir o nome do diretorio da view
+		// Remove a palavra Controller, para corrigir o nome do diretório da view
 		$filterFolder = str_replace("controller","", $ClassName);
 		// Inclui a view referente ao nome filtrado acima
 		include_once '../app/Views/'.$filterFolder.'/'.$this->action.'.php';
@@ -156,4 +158,4 @@ abstract class Action
     }
 
 
-}// end class Action
+}// end class AbstractActionController

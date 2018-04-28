@@ -19,7 +19,7 @@ trait Auth
 {
     private $segundo = 3600;
 
-    // Action que realiza o login
+    // AbstractActionController que realiza o login
     public function loginAction()
     {
         // Sentando o titulo da página
@@ -28,7 +28,7 @@ trait Auth
         return $this->render("login");
     }//end loginAction
 
-    // Action que realiza a autenticação do usúario
+    // AbstractActionController que realiza a autenticação do usúario
     public function logarAction($request)
     {
         // Capturando requisição na realização do login

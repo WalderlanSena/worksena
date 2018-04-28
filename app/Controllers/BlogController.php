@@ -12,11 +12,11 @@
 
 namespace App\Controllers;
 
-use WsSystem\Controller\Action;
+use WsSystem\Controller\AbstractActionController;
 use WsSystem\Di\Container;
 use WsSystem\Components\RouteRedirector\Redirector;
 
-class BlogController extends Action
+class BlogController extends AbstractActionController
 {
 	private $post;	// Atributo que receberá o retorno da criação do model a ser instanciado
 
@@ -31,7 +31,7 @@ class BlogController extends Action
 	// Action index
 	public function index()
 	{
-		// Realizando as buscas pelo os útimos posts cadastrados
+		// Realizando as buscas pelo os últimos posts cadastrados
 		$this->view->posts = $this->post->readAll(5, null, "idArtigo DESC");
 		// Setando o titulo da view
 		$this->setPageTitle("Blog");
@@ -48,15 +48,8 @@ class BlogController extends Action
 		}//end if
 		// Setando o titulo da página de listagem de posts
 		$this->setPageTitle("{$this->view->posts->titulo}");
-		// Renderizando a view responsavel pela exibição das postagens
+		// Renderizando a view responsável pela exibição das postagens
 		return $this->render("blogpost");
 	}//end action post
-
-
-    public function teste($id)
-    {
-        echo "<pre>";
-        print_r($id);
-    }
 
 }//end classe

@@ -10,7 +10,7 @@ class Usuarios extends Model
     protected $_table = "Usuarios";
 
     /**
-     * Método que define as regras de validação de novos usuarios cadastradas
+     * Método que define as regras de validação de novos usuários cadastrados
      * @return array
      */
     public function rules()
@@ -32,4 +32,4 @@ class Usuarios extends Model
             "senha" => 'required'
         ];
     }//end rulesAuth
-}//end model usuarios
+}//end model usuários

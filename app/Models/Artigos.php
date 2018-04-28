@@ -10,7 +10,7 @@ class Artigos extends Model
 	protected $_table = "Artigos";
 
     /**
-     * Método que define as regras de validação de novos usuarios cadastradas
+     * Método que define as regras de validação de novos usuários cadastrados
      * @return array
      */
 	public function rules()

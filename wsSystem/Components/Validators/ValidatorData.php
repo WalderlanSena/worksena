@@ -17,14 +17,14 @@ use WsSystem\Components\Sessions\Session;
 abstract class ValidatorData
 {
     /**
-     * Método que realiza campos de inserção via formulario na aplicação
+     * Método que realiza campos de inserção via formulário na aplicação
      * @param array $data
      * @param array $rules
      * @return bool
      */
     public static function validatorField(array $data, array $rules)
     {
-        $errors = null;  // variavel que recebe os erros retornados pela a validação
+        $errors = null;  // variável que recebe os erros retornados pela a validação
 
         //Percorrendo as regras passadas
         foreach ($rules as $rulesKey => $rulesValue) {

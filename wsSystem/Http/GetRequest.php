@@ -15,14 +15,14 @@ namespace WsSystem\Http;
 abstract class GetRequest
 {
     /**
-     * Método responsavel pela captura das requisições HTTP
+     * Método responsável pela captura das requisições HTTP
      * @return bool|\stdClass
      */
     public static function getRequests()
     {
         /**
          *  @return Object
-         *  Retorna um objeto com o indice GET, onde as requisições post são capturadas
+         *  Retorna um objeto com o índice GET, onde as requisições post são capturadas
          */
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $request    = [];
@@ -36,7 +36,7 @@ abstract class GetRequest
 
         /**
          *  @return Object
-         *  Retorna um objeto com o indice POST, onde as requisições post são capturadas
+         *  Retorna um objeto com o índice POST, onde as requisições post são capturadas
          */
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $request    = [];
