@@ -4,10 +4,10 @@ namespace App\Models;
 
 use WsSystem\Model\Model;
 
-class Usuarios extends Model
+class User extends Model
 {
     // Subscreve o atributo da classe Pai (Ou seja a WsSystem\Model\Model)
-    protected $_table = "Usuarios";
+    protected $_table = "User";
 
     /**
      * Método que define as regras de validação de novos usuários cadastrados

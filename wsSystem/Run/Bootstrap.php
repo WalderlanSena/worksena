@@ -13,6 +13,8 @@
 
 namespace WsSystem\Run;
 
+use WsSystem\Components\RouteRedirector\Redirector;
+use WsSystem\Components\Sessions\Session;
 use WsSystem\Di\Container;
 use WsSystem\Http\GetRequest;
 
@@ -26,10 +28,14 @@ abstract class Bootstrap
      */
     public function __construct()
     {
+        $this->onBootstrap();
         $this->initRoutes();
         $this->run($this->getUrl());
     }//end construct
 
+    protected function onBootstrap()
+    {
+    }
     /**
      *  Método abstrato para especificar as rotas do sistema
      */
@@ -39,43 +45,47 @@ abstract class Bootstrap
      * Captura as rotas solicitadas via Url
      * Passando rotas capturadas via URL
      * @param $url
+     * @return mixed
      */
     protected function run($url)
     {
-	    // Converte a url para um array de dados
-	    $request = explode("/", $url);
+        // Converte a url para um array de dados
+        $request = explode("/", $url);
         // Limpando a quantidade de parâmetros possivelmente armazenados
         $this->params  = [];
-	    // Captura rotas cadastradas na aplicação
-	    foreach ($this->router as $route) {
-    		// Transforma a posição com a rota em um array
-    		$routeBase = explode("/", $route[0]);
-    		// Percorre as rotas cadastradas no sistema
-    		for ($i = 0; $i < count($routeBase); $i++) {
-    			// Verifica se há parâmetros nas rotas cadastradas
-    			if ((strpos($routeBase[$i], "{") !== false) && (count($request) == count($routeBase))) {
-    				// Se hover substitui o valor de {id} pelo passado na requisição
-    				$routeBase[$i]  = $request[$i];
-    				$this->params[] = $request[$i];
-    			}//end if
-    			// Remontando a rota com os parâmetros passados
-    			$route[0] = implode($routeBase, "/");
-    		}//end for
-    		// Verifica se a rota existe
-    		if ($url == $route[0]) {
+        // Captura rotas cadastradas na aplicação
+        foreach ($this->router as $route) {
+            // Transforma a posição com a rota em um array
+            $routeBase = explode("/", $route['route']);
+            // Percorre as rotas cadastradas no sistema
+            for ($i = 0; $i < count($routeBase); $i++) {
+                // Verifica se há parâmetros nas rotas cadastradas
+                if ((strpos($routeBase[$i], "{") !== false) && (count($request) == count($routeBase))) {
+                    // Se hover substitui o valor de {id} pelo passado na requisição
+                    $routeBase[$i]  = $request[$i];
+                    $this->params[] = $request[$i];
+                }//end if
+                // Remontando a rota com os parâmetros passados
+                $route['route'] = implode($routeBase, "/");
+            }//end for
+            // Verifica se a rota existe
+            if ($url == $route['route']) {
+                if (isset($route['authentication']) ?? false && !Session::getSession('user')) {
+                    return Redirector::redirectToRoute($route['authentication']['redirect'] ?? '/404',[]);
+                }
                 // Existindo as mesmas são separadas em controller e action respectivamente
                 $routeFound = true;
-    			$controller = $route[1];
-    			$action     = $route[2];
-    			break;
-    		} else {
+                $controller = $route['controller'];
+                $action     = $route['action'];
+                break;
+            } else {
                 // Se a rota não existir
-    			$routeFound = false;
-    		}//end if
-	    }//end foreach
-	    if ($routeFound) {
-    		// Instanciando o controller
-    		$controller = Container::newController($controller);
+                $routeFound = false;
+            }//end if
+        }//end foreach
+        if ($routeFound) {
+            // Instanciando o controller
+            $controller = Container::newController($controller);
             /**
              *  Verificando e passando os parâmetros para a rota
              */
@@ -83,19 +93,20 @@ abstract class Bootstrap
                 if (method_exists($controller, $action)) {
                     $controller->$action(array_filter($this->params), GetRequest::getRequests());
                 } else {
-                    Container::pageNotFound();
+                    return Container::pageNotFound();
                 }//end if
             } else {
                 if (method_exists($controller, $action)) {
                     $controller->$action(GetRequest::getRequests());
                 } else {
-                    Container::pageNotFound();
+                    return Container::pageNotFound();
                 }//end if
             }//end if
-	    } else {
+        } else {
             // Se a página não foi encontrada - Erro 404
-		    Container::pageNotFound();
-	    }//end if
+            return Container::pageNotFound();
+        }//end if
+        return false;
     }//end function run
 
     /**

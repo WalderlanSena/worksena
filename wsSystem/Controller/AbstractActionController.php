@@ -20,23 +20,23 @@ abstract class AbstractActionController
 {
     protected $view;                   // Recebe o objeto padrão stdClass
     protected $success;                // Flash messages de sucesso
-	protected $errors;                 // Flash messages de erro
+    protected $errors;                 // Flash messages de erro
     protected $info;                   // Flash messages de informação
     protected $inputs;                 // Armazena os dados dos inputs temporariamente
     protected $action;                 // Recebe o nome da action setada
-	protected $auth;		           // Recebe um objeto com os dados do usuário logado
+    protected $auth;		           // Recebe um objeto com os dados do usuário logado
     private $pageDescription = null;   // Recebe a descrição da meta tags description
     private $pageTitle       = null;   // Recebe o titulo da página
     private $config;
 
-	public function __construct()
+    public function __construct()
     {
         // Criando e inicializando um objeto view
-		$this->view = new \stdClass();
+        $this->view = new \stdClass();
         $this->auth = new AuthUser();
 
         // Variável que recebe as configurações padrões da aplicação
-		$this->config = self::findDataSettings();
+        $this->config = self::findDataSettings();
 
         // Inicializando flash mensagem da aplicação
 
@@ -50,7 +50,7 @@ abstract class AbstractActionController
             $this->errors = Session::getSession('errors');
             Session::destroySession('errors');
         }//end if
-		// Mensagem padrão para operações de info
+        // Mensagem padrão para operações de info
         if (Session::getSession('info')) {
             $this->info = Session::getSession('info');
             Session::destroySession('info');
@@ -66,31 +66,31 @@ abstract class AbstractActionController
      * Método que retorna as configurações padrão de localização de layout e mensagem
      * @return bool|mixed
      */
-	private function findDataSettings()
-	{
-		if(file_exists("../wsSystem/Config/GeneralSettings.php")) {
-			return require "../wsSystem/Config/GeneralSettings.php";
+    private function findDataSettings()
+    {
+        if(file_exists("../wsSystem/Config/GeneralSettings.php")) {
+            return require "../wsSystem/Config/GeneralSettings.php";
         }
         return false;
-	}//end findDataSettings
+    }//end findDataSettings
 
     /**
      * @param $action
      * @param bool $layout
      * @return mixed|void
      */
-	public function render($action, $layout = true)
+    public function render($action, $layout = true)
     {
         // Passando o nome da view que foi solicitada
         $this->action = $action;
         // Verifica se o layout existe. E Se caso o mesmo exista será incluido
-		if ($layout == true && file_exists($this->config['layoutLocation'])) {
-		    include_once $this->config['layoutLocation'];
-		} else {
+        if ($layout == true && file_exists($this->config['layoutLocation'])) {
+            include_once $this->config['layoutLocation'];
+        } else {
             // Caso não aja um layout existente, ou não seja solicitado, e carregado o content
             $this->content();
-		}//end if
-	}//end function render
+        }//end if
+    }//end function render
 
     /**
      * Renderizando as flash mensagens
@@ -107,39 +107,39 @@ abstract class AbstractActionController
     /**
      *  Renderiza o content da Aplicação
      */
-	public function content()
+    public function content()
     {
-		// Captura o nome da class atual
-		$current   = get_class($this);
-		// Remove o caminho desnecessários somente o nome do controller
-		$ClassName = strtolower(str_replace("App\\Controllers\\", "", $current));
-		// Remove a palavra Controller, para corrigir o nome do diretório da view
-		$filterFolder = str_replace("controller","", $ClassName);
-		// Inclui a view referente ao nome filtrado acima
-		include_once '../app/Views/'.$filterFolder.'/'.$this->action.'.php';
-	}//end function content
+        // Captura o nome da class atual
+        $current   = get_class($this);
+        // Remove o caminho desnecessários somente o nome do controller
+        $ClassName = strtolower(str_replace("App\\Controllers\\", "", $current));
+        // Remove a palavra Controller, para corrigir o nome do diretório da view
+        $filterFolder = explode('\\', $ClassName);
+        // Inclui a view referente ao nome filtrado acima
+        include_once '../app/Views/'.$filterFolder[0].'/'.$this->action.'.phtml';
+    }//end function content
 
     /**
      * Configurando titulo dinâmico para as views
      * @param $pageTitle
      */
-	protected function setPageTitle($pageTitle)
+    protected function setPageTitle($pageTitle)
     {
-	    $this->pageTitle = $pageTitle;
-	}//end function setPageTitle
+        $this->pageTitle = $pageTitle;
+    }//end function setPageTitle
 
     /**
      * Adiciona separador no titulo da página
      * @param null $separator
      * @return null|string
      */
-	protected function getPageTitle($separator = null)
+    protected function getPageTitle($separator = null)
     {
-		if ($separator)
-			return $this->pageTitle. " " . $separator. " ";
-		else
-			return $this->pageTitle;
-	}//end function getPageTitle
+        if ($separator)
+            return $this->pageTitle. " " . $separator. " ";
+        else
+            return $this->pageTitle;
+    }//end function getPageTitle
 
     /**
      * @param $description
@@ -156,6 +156,5 @@ abstract class AbstractActionController
     {
         return $this->pageDescription;
     }
-
 
 }// end class AbstractActionController

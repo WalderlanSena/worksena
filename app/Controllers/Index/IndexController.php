@@ -6,11 +6,11 @@
  * Exemplo de funcionamento do controller
  * @license https://github.com/WalderlanSena/worksena/blob/master/LICENSE (MIT License)
  *
- * @copyright © 2013-2017 - @author Walderlan Sena <walderlan@worksena.xyz>
+ * @copyright © 2013-2018 - @author Walderlan Sena <walderlan@worksena.xyz>
  *
  */
 
-namespace App\Controllers;
+namespace App\Controllers\Index;
 
 use WsSystem\Controller\AbstractActionController;
 

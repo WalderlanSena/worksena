@@ -24,7 +24,9 @@ abstract class Container
      */
     public static function newController($controller)
     {
-        $objController = "\App\\Controllers\\".$controller;
+        $namePath      = str_replace('Controller', '',$controller);
+        $objController = "\App\\Controllers\\".$namePath.'\\'.$controller;
+
         return new $objController;
     }//end Método newController
 
@@ -50,6 +52,8 @@ abstract class Container
         } else {
             echo "Erro: Página não encontrada...";
         }
+
+        return false;
     }//end método pageNotFound
 
 }//end classe Container
