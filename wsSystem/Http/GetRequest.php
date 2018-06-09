@@ -18,25 +18,25 @@ abstract class GetRequest
      * Método responsável pela captura das requisições HTTP
      * @return bool|\stdClass
      */
-    public static function getRequests()
+    public static function getRequests($params = null)
     {
         /**
          *  @return Object
-         *  Retorna um objeto com o índice GET, onde as requisições post são capturadas
+         *  Retorna um objeto com o indice GET, onde as requisições post são capturadas
          */
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && !is_null($params)) {
             $request    = [];
             $objRequest = new \stdClass();
-            foreach ($_GET as $key => $value) {
+            foreach ($params as $key => $value) {
                 $request[$key] = $value;
             }
-            $objRequest->get = (object)$request;
+            $objRequest->get = $request;
             return $objRequest;
         }
 
         /**
          *  @return Object
-         *  Retorna um objeto com o índice POST, onde as requisições post são capturadas
+         *  Retorna um objeto com o indice POST, onde as requisições post são capturadas
          */
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $request    = [];
@@ -44,7 +44,7 @@ abstract class GetRequest
             foreach ($_POST as $key => $value) {
                 $request[$key] = $value;
             }
-            $objRequest->post = (object)$request;
+            $objRequest->post = $request;
             return $objRequest;
         }
 

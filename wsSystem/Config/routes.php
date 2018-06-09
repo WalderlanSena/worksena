@@ -14,6 +14,7 @@ return [
     'routes' => [
 
         'main' => [
+            'method'        => 'GET',
             'route'         => '/',
             'controller'    => 'IndexController',
             'action'        => 'indexAction'
@@ -23,6 +24,7 @@ return [
             'authentication'    => [
                 'redirect' => '/'
             ],
+            'method'        => 'GET',
             'route'             => '/home',
             'controller'        => 'IndexController',
             'action'            => 'indexAction'
