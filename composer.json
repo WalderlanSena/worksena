@@ -4,7 +4,7 @@
     "keywords": ["micro-framework","worksena","mvc", "framework-php"],
     "license": "MIT",
     "type": "project",
-    "version": "v1.3.12",
+    "version": "v2.0.0-alfa",
     "authors": [
         {
           "name": "Walderlan Sena",
@@ -14,12 +14,15 @@
         }
     ],
     "require": {
-        "php":">=7.0"
+        "php":">=7.0",
+        "mvs/worksena-mvc": "*",
+        "mvs/worksena-router": "*",
+        "vlucas/phpdotenv": "^2.5"
     },
     "autoload": {
       "psr-4": {
-        "App\\":"app/",
-        "WsSystem\\":"wsSystem/"
+        "Config\\": "config/",
+        "Application\\": "module/Application/src"
       }
     },
     "scripts": {
