@@ -4,7 +4,7 @@
     "keywords": ["micro-framework","worksena","mvc", "framework-php"],
     "license": "MIT",
     "type": "project",
-    "version": "v2.0.0-alfa",
+    "version": "2.0.0-alpha",
     "authors": [
         {
           "name": "Walderlan Sena",
