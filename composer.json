@@ -16,8 +16,7 @@
     "require": {
         "php":">=7.0",
         "mvs/worksena-mvc": "*",
-        "mvs/worksena-router": "*",
-        "vlucas/phpdotenv": "^2.5"
+        "mvs/worksena-router": "*"
     },
     "autoload": {
       "psr-4": {
