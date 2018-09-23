@@ -10,7 +10,7 @@ class ApplicationController extends AbstractActionController
     {
         $this->setPageTitle('Bem Vindo(A) !');
 
-        return $this->render('application.index', true, [
+        return $this->render('application.index', [
             'version' => 'v2.0.0'
         ]);
     }
