@@ -5,6 +5,10 @@
  * @copyright © 2013-2018 - @author Walderlan Sena <walderlan@worksena.xyz>
  */
 
-return [
+namespace Config\Autoload;
 
+return [
+    'di' => [
+//        IndexService::class => IndexServiceInterface::class
+    ],
 ];
