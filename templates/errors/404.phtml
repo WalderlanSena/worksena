@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - Pagína não encontrada | WorkSena Framework</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="/assets/img/favicon.png" />
+    <style>
+
+        @import 'https://fonts.googleapis.com/css?family=Oswald';
+
+        body{
+            background-color: rgb(51, 66, 91);
+            font-family:'Arial',sans-serif;
+            text-align: center;
+            color: #FFF !important;
+        }
+
+        h1 {
+            /*font-family: verdana;*/
+            /*margin-bottom:-20px;*/
+            font-family: 'Oswald', sans-serif;
+        }
+        .erro{
+            font-size: 150px;
+            font-family: 'Oswald', sans-serif;
+        }
+        #erro{
+            text-decoration: none !important;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        .mentes{
+            font-size:10pt;
+            margin-top: 50px;
+        }
+        figure img{
+            margin-top:5px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="erro">4<img src="/assets/img/logo-sm.png" alt="Logo Worksena">4</h1>
+
+            <h1>Página não encontrada</h1>
+
+            <br>
+
+            <h6>- A página que você procura, não existe -</h6>
+
+            <a href="/" id="erro">
+                <p class="label label-warning">
+                    << Voltar para página inicial >>
+                </p>
+            </a>
+
+            <br />
+
+            <p class="mentes">
+                © 2013 - <?= (new \DateTime())->format("Y") ?>
+                <a href="https://www.mentesvirtuaissena.com/" target="_blank"><strong>Mentes Virtuais Sena</strong></a>
+            </p
+        </div>
+    </div>
+</div>
+</body>
+</html>

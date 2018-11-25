@@ -1,0 +1,18 @@
+<?php
+
+use Bin\Config\ConfigConsole;
+
+require  __DIR__ . '/../vendor/autoload.php';
+
+if (count($argv) == 1) {
+    die("Worksena Console - version: alfa".PHP_EOL);
+}
+
+if ($argv[1] == "server:run") {
+    echo 'Server started on '.ConfigConsole::SERVER_HOST.':'.ConfigConsole::SERVER_PORT.' Executed the: '.(new \DateTime())->format('Y/m/d H:i:s').PHP_EOL;
+    $command = '"'.PHP_BINARY.'"';
+    $command .= ' -S '.ConfigConsole::SERVER_HOST.':'.ConfigConsole::SERVER_PORT;
+    $command .= ' -t "'.ConfigConsole::SERVER_PUBLIC_DIRECTORY.'"/';
+    passthru($command);
+}
+

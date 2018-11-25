@@ -18,12 +18,15 @@
         "mvs/worksena-mvc": "*",
         "mvs/worksena-router": "*"
     },
+
     "autoload": {
       "psr-4": {
-        "Config\\": "config/",
-        "Application\\": "module/Application/src"
+          "Bin\\": "bin/",
+          "Config\\": "config/",
+          "Application\\": "module/Application/src"
       }
     },
+
     "scripts": {
         "serve": "php -S 0.0.0.0:8080 -t public/"
     }
