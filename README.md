@@ -39,7 +39,7 @@ Thanks for contributing with the worksena! For more information about contributi
 
 ## Vulnerabilities
 
-If you discover a security vulnerability within ** Worksena **, send an ** email ** to ** Walderlan Sena ** at **walderlan@worksena.xyz**. All security vulnerabilities will be addressed immediately.
+If you discover a security vulnerability within **Worksena**, send an **email** to **Walderlan Sena** at **walderlan@worksena.xyz**. All security vulnerabilities will be addressed immediately.
 
 ## License
 
