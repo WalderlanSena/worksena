@@ -5,41 +5,42 @@
 <a href="#"><img src="https://github.com/WalderlanSena/tagsGit/blob/master/licenseMIT.svg" alt="License"></a>
 </p>
 
-## Sobre o Worksena
+## About Worksena
 
-**WorkSena** é um **micro framework PHP**, desenvolvido com o objetivo de facilitar o processo de desenvolvimento de aplicações **web**. O micro framework utiliza a estrutura **MVC**, **PHP/POO**, **Composer**  e **Banco de dados** com suporte ao **[ Mysql e PostgreSQL ]**,disponibilizando padrões de projetos especializados em **performance** de alto desenvolvimento na web como:
+WorkSena is a micro framework PHP, developed with the goal of facilitating the process of web application development. The micro framework uses the MVC, PHP / POO, Composer and Database framework with support for [Mysql and PostgreSQL], providing standards for specialized web development projects such as:
 
-- [Sistema de roteamento simples](https://www.worksena.xyz).
-- [Renderização de Layout autômatico](https://www.worksena.xyz).
-- [Padrão de projeto **MVC** com modularização](https://www.worksena.xyz)
+- [Routing system](https://worksena.xyz/documentacao/rotas).
+- [Automated Layout Rendering](https://worksena.xyz/documentacao/views).
+- [MVC design standard with modularization](https://worksena.xyz/documentacao/controller).
+- [Dependency Injection](https://worksena.xyz/documentacao/injecao-de-dependencia)
 
-Um micro-framework é utilizando quando não há nescessidade de um framework muito robusto, cujo suas funcionalidades não serão completamente aplicadas, tendo uma perda de: performace, espaço e de produtividade. Eis que sugem os **Micros-Frameworks** :raised_hands:
+A micro-framework is used when there is no need for a very robust framework, whose functionalities will not be completely applied, having a loss of performace, space and productivity. Here are the micros-Frameworks :raised_hands:
 
-## Como aprender Worksena
+## How to Learn Worksena
 
-Worksena tem uma vasta documentação com explicações bem completas e claras, e já conta com alguns exemplos de utilização das funcionalidades. A [Documentação Worksena](https://worksena.xyz) está bem completa, explicando desda estrura à funcionalidades dos componetes que o mesmo disponibiliza.
+Worksena has a lot of documentation with very complete and clear explanations, and already has some examples of using the features. The [Worksena Documentation](https://worksena.xyz) is very complete, explaining from the outset the functionality of the components that it makes available.
 
-Com uma abordagem de um PHP moderno e sofisticado basiadando-se sempre na documentação oficial, worksena também dispôe com o suporte dos desenvolvedores da empresa [Mentes Virtuais Sena](https://www.mentesvirtuiassena.com), entre em contato pelo chat e informe sua dúvida.
+With a modern and sophisticated PHP approach, always based on the official documentation, worksena also has the support of the company's developers [Mentes Virtuais Sena](https://www.mentesvirtuiassena.com), contact us via chat and inform your doubt.
 
-## Um projeto patrocinado por
+## A project sponsored by
 
-O projeto é patrocinado e mantido por, e pela comunidade:
+The project is sponsored and maintained by, and by, the community:
 
 <p align="center">
 	<a href="https://www.mentesvirtuaissena.com">
-		<img src="https://www.mentesvirtuaissena.com/assets/img/logoMvs.png" width="250">
+		<img src="https://www.mentesvirtuaissena.com/assets/img/logoMvs.png">
 	</a>
 </p>
 
 
-## Contribuições
+## Contributions
 
-Obrigado por contribuir com o  worksena! Para mais informações sobre as contribuições e também como contribuir acesse: [Documentação Worksena](https://worksena.xyz).
+Thanks for contributing with the worksena! For more information about contributions and also how to contribute, go to: [Worksena Documentation](https://worksena.xyz/junte-se-a-tribo).
 
-## Vulnerabilidades de segurança
+## Vulnerabilities
 
-Se você descobrir uma vulnerabilidade de segurança dentro do **Worksena**, envie um **e-mail** para **Walderlan Sena** em **walderlan@worksena.xyz**. Todas as vulnerabilidades de segurança serão imediatamente abordadas.
+If you discover a security vulnerability within ** Worksena **, send an ** email ** to ** Walderlan Sena ** at **walderlan@worksena.xyz**. All security vulnerabilities will be addressed immediately.
 
-## Licença
+## License
 
-O micro-framework Worksena é um software de código aberto licenciado sob a licença [MIT license](http://opensource.org/licenses/MIT).
+The Worksena micro-framework is open source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
