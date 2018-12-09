@@ -37,6 +37,14 @@ The project is sponsored and maintained by, and by, the community:
 
 Thanks for contributing with the worksena! For more information about contributions and also how to contribute, go to: [Worksena Documentation](https://worksena.xyz/junte-se-a-tribo).
 
+<table>
+	<tr>
+		<td><img src="https://account.jetbrains.com/static/images/jetbrains-logo-inv.svg" width="100"></td>
+		<td>Active contributors to the project earn a <strong> annual license </strong> of JetBrains products, including <strong> PhpStorm</strong>. <br>For more information send an email to: <strong>walderlan@worksena.xyz.</strong></td>
+	</tr>
+</table>
+
+
 ## Vulnerabilities
 
 If you discover a security vulnerability within **Worksena**, send an **email** to **Walderlan Sena** at **walderlan@worksena.xyz**. All security vulnerabilities will be addressed immediately.
