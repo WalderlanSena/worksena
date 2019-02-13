@@ -28,7 +28,7 @@ The project is sponsored and maintained by, and by, the community:
 
 <p align="center">
 	<a href="https://www.mentesvirtuaissena.com">
-		<img src="https://www.mentesvirtuaissena.com/assets/img/logoMvs.png">
+		<img src="https://mentesvirtuaissena.com/img/logoMvs.png>
 	</a>
 </p>
 
@@ -51,4 +51,4 @@ If you discover a security vulnerability within **Worksena**, send an **email** 
 
 ## License
 
-The Worksena micro-framework is open source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Worksena micro-framework is open source software licensed under the [MIT license](https://github.com/WalderlanSena/worksena/blob/master/LICENSE).
