@@ -28,7 +28,7 @@ The project is sponsored and maintained by, and by, the community:
 
 <p align="center">
 	<a href="https://www.mentesvirtuaissena.com">
-		<img src="https://mentesvirtuaissena.com/img/logoMvs.png>
+		<img src="https://mentesvirtuaissena.com/img/logoMvs.png">
 	</a>
 </p>
 
