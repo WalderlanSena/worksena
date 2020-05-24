@@ -7,8 +7,11 @@
 
 namespace Config\Autoload;
 
+use App\Service\Home\HomeService;
+use App\Service\Home\Interfaces\HomeServiceInterface;
+
 return [
     'di' => [
-//        IndexService::class => IndexServiceInterface::class
+       HomeService::class => HomeServiceInterface::class
     ],
 ];
