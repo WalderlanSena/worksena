@@ -7,20 +7,13 @@
 
 namespace Config\Router;
 
-use Application\Controller\ApplicationController;
+use App\Controller\Home\HomeController;
 
 return [
     'main' => [
         'method'        => 'GET',
         'route'         => '/',
-        'controller'    =>  ApplicationController::class,
+        'controller'    =>  HomeController::class,
         'action'        => 'index',
-    ],
-
-    'home' => [
-        'method'        => 'GET',
-        'route'         => '/home',
-        'controller'    =>  ApplicationController::class,
-        'action'        => 'index',
-    ],
+    ]
 ];

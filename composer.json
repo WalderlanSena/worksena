@@ -1,33 +1,36 @@
 {
-    "name": "mvs/worksena",
-    "description": "Micro Framework PHP",
-    "keywords": ["micro-framework","worksena","mvc", "framework-php"],
-    "license": "MIT",
-    "type": "project",
-    "version": "2.0.0-alpha",
-    "authors": [
-        {
-          "name": "Walderlan Sena",
-          "email": "walderlan@worksena.xyz",
-          "homepage": "https://www.mentesvirtuaissena.com",
-          "role": "Developer"
-        }
-    ],
-    "require": {
-        "php":">=7.0",
-        "mvs/worksena-mvc": "*",
-        "mvs/worksena-router": "*"
-    },
-
-    "autoload": {
-      "psr-4": {
-          "Bin\\": "bin/",
-          "Config\\": "config/",
-          "Application\\": "module/Application/src"
-      }
-    },
-
-    "scripts": {
-        "serve": "php -S 0.0.0.0:8080 -t public/"
+  "name": "mvs/worksena",
+  "description": "Micro Framework PHP",
+  "keywords": [
+    "micro-framework",
+    "worksena",
+    "mvc",
+    "framework-php"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "version": "2.0.0",
+  "authors": [
+    {
+      "name": "Walderlan Sena",
+      "email": "walderlan@worksena.xyz",
+      "homepage": "https://www.mentesvirtuaissena.com",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "mvs/worksena-mvc": "*",
+    "mvs/worksena-router": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bin\\": "bin/",
+      "Config\\": "config/",
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "serve": "php -S 0.0.0.0:8080 -t public/"
+  }
 }
